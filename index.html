@@ -81,7 +81,9 @@ I also co-coordinate <b> <a target="_blank" rel="noopener noreferrer" href="http
 
 <p>I am interested in causal inference because the method can be used to understand whether variation in efficiency of courts can have an impact on economic development. While it may not be possible to experimentally manipulate 'court quality' by randomly assigning 'better' courts to some areas, I am hoping that the tools from causal inference can be leveraged to credibly establish the broader economic effects of weak institutions, particularly judicial ineffiency.</p>
 
-<h3> The Question </h3>
+<h2> Definition </h2>
+
+<div align="left"><h3> The Question </h3></div>
 
 <p>The quality of a country's judiciary has far-reaching consequences, as it plays a key role as the arbitrator of justice and is the institution that protects the rights of citizens. However, there remains large variation in the <i>ability</i> of courts to perform this mandate, especially in developing countries. </p>
 
@@ -121,6 +123,42 @@ I also co-coordinate <b> <a target="_blank" rel="noopener noreferrer" href="http
 <p><b>Hypothesis 1:</b> Quotas lead to an increase in the number of female judges practicing in District Courts</p>
 <p><b>Hypothesis 2:</b> Quotas lead to no change in judicial efficiency</p>
 <p><b>Hypothesis 3:</b> Quotas lead to an increase in the number of women attempting the state judicial services examinations.</p>
+
+<h2> Identification </h2>
+
+<p> In the following section, I describe the identification strategy for Hypothesis 3 only for simplicity. I want to test if quotas lead to an increase in the number of women attempting the state judicial services examinations.</p>
+<h3> Assumptions </h3>
+<ul>
+  <li><b>Treatment Irrelevance (from SUTVA): </b> treatment interventions result in the same potential outcome, so this is not a concern</li>
+  <li><b>Consistency (from SUTVA): </b> Same version of treatment (Quota) as the policy is uniformly applied across districts with and without quotas  </li>
+  <li><b>No Interference (from SUTVA): </b> this might not hold since changes due to quotas across districts might interfere, especially for proximate districts and along borders. For example, a court close to a border may be close to villages and settlements in treated and control districts, and depending on proximity and transportation availability, female judges could serve as mentors for women across both treated and untreated areas. </li>
+  <li><b>Exchangeability: </b> the outcomes are independent of the assignment </li>
+</ul>
+
+
+<h3> Steps for Identification & Justification </h3>
+
+<img src="dag.png">
+
+<p> Here, Q signifies the treatment (Quotas), X are a set of variables that can affect both the institution of quotas and the outcomes Y (increase in females attempting judicial service examinations), and W are variables that affect Y, for instance, some regions may have incentives given to women to take up law as a career, or to attempt these exams. </p>
+
+<p>  I use backdoor adjustment to determine the nodes that satisfy the backdoor criteria so that conditioning on them I can identify causal effects. </p>
+
+<img src="bda.png">
+
+<p> Here, X<sub>A</sub> is the node that satisfies the backdoor criteria, which is given by X in the above diagram. </p>
+
+<p>Accordingly, I use the law of iterated expectation, and consistency helps me arrive at this. As described above, we have consistency since the same version of treatment (Quota) as the policy is uniformly applied across districts with and without quotas. </p>
+
+<h3> Interpretation and Conclusion </h3>
+
+<p>In order to identify the effects, I would need to collect data on several control variables. For instance, time is a control that affects both the treatment and the outcome, and will help me employ a difference-in-difference strategy, to compare the changes over time in districts with and without quotas. </p> 
+
+<p> Further, I will use court-level fixed effects to control for court characteristics.</p>
+
+<p>In order to make this analysis credible, I am leveraging a natural experiment wherein geographically large states in India split into two states, wherein one part ended up having quotas introduced while the other did not. This ensures that there are reasonably similar starting characteristics (similar geography, institutions, language etc.). </p>
+<p>However, the new states might be different in other respects that may be important to take into account for this particular research question (for instance, women’s literacy, male-female ratio in population, attitudes towards women etc.). In order to make a “neat” causal argument, I plan to buttress this analysis by using propensity score matching to match districts with similar characteristics, wherein one had a quota and the other did not, and then estimate causal effects for “similar” units only.  </p>
+
 
 
 
