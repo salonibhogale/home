@@ -161,11 +161,54 @@ I also co-coordinate <b> <a target="_blank" rel="noopener noreferrer" href="http
 
 
 
+<h2> Estimation / Implementation </h2>
+
+<h3> Algorithm: Coarsened Exact Matching</h3> 
 
 
+<p>  In this project, I plan to employ a research design that allows me to select and compare courts by accounting for confounders through a ‘natural experiment’.  </p>
+  
+<p> I study the effect of quotas by using data from three large Indian states from which new states were carved out in late 2000. The three new states (created out of territories that belonged to the older states) went on to put quotas in place for women in the lower judiciary. The older territories can thus serve as a counterfactual, which allows us to observe what may have happened if quotas were not instituted, given that the regions were originally under the same political and judicial systems. </p>
+
+<p> Comparing the data for the old and new states, I found that the new states were geographically smaller in size and have a better sex-ratio as well as literacy rates (both overall, and for females). While these states might be geographically and culturally similar, the reasons for the splits and other differences listed above may point to unmeasured confounders. </p> 
+
+<p> I allay these concerns by employing a matching approach, wherein I use 'coarsened exact matching' to determine 'similar' districts. I match districts across the old and new states which have similar (1) sex-ratio (2) female literacy and (3) overall literacy. </p> 
+
+<h3> Steps for Estimation </h3>
+
+<p> In order to perform 'coarsened exact matching' I coarsen each of the variables into 4 'bins' as described in the algorithm. Since I am using the 'cem' method in the 'MatchIt' package in R, this number describes the number of cutpoints separating bins.<p> 
+
+<p> Further, any 'bins' or groups that do not include the treated and controlled units are discarded. </p> 
+
+<p> I use the following code to determine the matched groups of districts: </p> 
+
+<img src="code.png">
+<br> 
+<br>
+<h3> Data </h3> 
+
+<p>In order to test the hypothesis, I plan to use a dataset on case records from the Indian District e-Courts project that covers cases in India's lower judiciary. The e-Courts project aimed at the complete digitization of case records in all district courts, and makes its repository available to be queried using case numbers and other details. I plan to scrape this data for both case-level and judge-level information for all cases filed in Indian District courts between 2000 and 2018. Next, I will use two open-source tools for determining the gender of judges, lawyers and litigants - the first employs a bidirectional Long Short-Term Memory (LSTM) model on a dataset of labeled names to assign gender attributes to the actors, and the second is a Python package that helps infer socio-demographic characteristics from Indian Names. </p>
+
+<p> I will organize the data into a court-day dataset, computing the relevant dependent variables for the analysis as the number of female judges, number of female advocates, cases filed by female petitioners and number of female aspirants to the lower judiciary. </p> 
+
+<h3> Performance of Algorithm</h3> 
+
+<p> I ran 'MatchIt' in R to match districts in coarsened units. These were n-to-k coarsened exact matchings, where for n treated district, k control matches could be made. There were also some which were not assigned any groups, for whom the 'matches' column was shown to be NA. </p> 
+
+<p> I display a screenshot of the matched data below:</p> 
+
+<img src="cem-output.png">
 
 
+<br>
+<br>
+<p> Further, there was some data for which no matches were performed, as seen below:</p> 
 
+<img src="cem-output-nm.png">
+
+<p> In total, we can see that 7 groups were formed, with varying number of treated and control units. </p> 
+
+<p> Finally, it is important to note that we are not estimating the ATT here - since there are districts in certain groups that have been dropped since no matches could be made. Thus, what we are doing is estimating the ATT, conditional on being matched. </p>
 
       </section>
       <footer>
