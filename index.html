@@ -210,6 +210,74 @@ I also co-coordinate <b> <a target="_blank" rel="noopener noreferrer" href="http
 
 <p> Finally, it is important to note that we are not estimating the ATT here - since there are districts in certain groups that have been dropped since no matches could be made. Thus, what we are doing is estimating the ATT, conditional on being matched. </p>
 
+<h2> Homework 5 </h2>
+
+<h3> Assumptions Made</h3>
+
+<p> Throughout this research, I have assumed that there is no unmeasured confounding - that there is no other variables that would condition the effect of quotas on females attempting judicial services examination </p>
+
+<p> However, there may be a potential of unmeasured confounding, so I construct the Rosenbaum Bounds that lend themselves to a sensitivity test <a href ="https://link.springer.com/content/pdf/10.1007/978-1-4757-3692-2.pdf?pdf=button">(Rosenbaum, 2002)</a> </p>
+
+<h3> Investigating Sensitivity </h3>
+
+<p> The motivating idea of this work is to estimate 'Gamma' - that is, how big does 'Gamma' need to be such that the relationship between the treatment and outcome is preserved. </p>
+
+<p> Interpreting Gamma: This number provides a sense of the different "odds" - that is, if Gamma is 1, it emulates a perfect randomized experiment. If Gamma is 2, then the matched districts differ in their assignments to treatment or control by a factor of 2 due to hidden bias. </p>
+
+<p> If a particular Gamma is shown to be within statistically insignificant bounds, then the hidden bias of size Gamma cannot explain away the difference between the outcomes in the treated and control districts.</p>
+
+<p> How big does Gamma for an unmeasured confounder need to be to explain away the association between the treatment and my outcome? The Rosenbaum Bounds provide a lower and an upper bound on the significance of the Gamma values that can help me understand this. Sensitivity analysis basically asks how conclusions about associations can be changed due to hidden biases of various magnitudes <a href ="https://link.springer.com/content/pdf/10.1007/978-1-4757-3692-2.pdf?pdf=button">(Rosenbaum, 2002)</a> </p>
+
+<p> In order to conduct sensitivity tests by creating bounds on the data, I use the 'rbounds' package in R to conduct Rosenbaum Bounds Sensitivity Tests. </p>
+
+<p>Here, I use the 'mcontrol' function that gives the sensitivity analysis for the significance levels from Wilcoxon's signed rank test, that is, the range of possible significance levels for various values of Gamma</p>
+
+<p>One limitation is that the package only suports matched data with 2 or 3 controls units matched to each treated unit. However, this does not work well with my previous set up, which sometimes had over 7 observations assigned to one group </p>
+
+<p> I thus re-set the coarsened exact matching procedure such that there is a 1:1 matching. To do this, I set k2k=TRUE in the MatchIt function </p>
+
+<img src="matching-11.png">
+
+<p> Next, I simulate outcome data for the experiment that measures girl's ambition and compute the average treatment effect for the matched pairs </p>
+
+<img src="outcome.png">
+
+<p> This gives an effect of 6, that is, districts that have gender quotas for judges increase girl's ambitions to pursue law as a career by 6 units </p>
+
+<p> Finally, I conduct the sensitivity analysis using the 1:1 matched pairs using coarsened exact matching. We want to test here how big the unobserved confounder needs to be oto explain away the significance of the result. </p>
+
+<p> To do this, I run the following command: </p>
+
+<img src="bounds.png">
+
+<p> And get the results as follows: </p>
+
+<img src="gamma.png">
+
+<p> The table shows that to explain away the observed association between gender quotas for judges and girl's ambition, a hidden bias (or an unobserved covariate) would need to increase the odds of exposure to the quota by more than a factor of Gamma = 3, assuming that the statistically significant result is obtained at p=0.05</p>
+
+<p> In order to conduct and interpret these results, I followed the procedure provided in Rosenbaum, Paul R. (2002) Observational Studies. Springer-Verlag.</p>
+
+<h3> Violation of assumption: Constructing E-Values </h3>
+
+<p> In order to test for the sensitivity of my conclusion to the stated assumptions (that there is no unmeasured confounding), I now assume that there may be unmeasured confounding. It would be helpful under this assumption to understand how big would the unmeasured confounder need to be to explain away the relationship between the treatment and outcome </p>
+
+<p> Here, I compute Ding's and VanderWeele's bounds to understand how much bias can be tolerated in our outcomes. One key question is how to choose values for RR_uy and RR_au.</p>
+
+<p> I get around this is by computing e-values (see more on e-values on VanderWeele's lecture <a href="https://www.youtube.com/watch?v=MrV4eWFcn1w&t=672s&ab_channel=ISPED-Bordeaux">here</a>) -  how much the unmeasured confounder must bias treatment assignments or the outcome to explain away the observed association between the treatment and outcome. </p>
+
+<p> First, I compute the observed relative risk (RR_obs) = mean(treated outcomes) / mean (control outcomes) = 2.28</p>
+<p> Further, I compute the 'evalue' in R, and find that I get E = 4, showing that, to explain away an observed relative risk of 2.28, the unmeasured confounder must increase the likelihood of an outcome by a factor of 4 or the treatment assignment must increase the likelihood of a level of the unmeasured confounder by a factor of 4.  </p>
+<p>  My conclusion is that any other weaker confounding could not explain away the relationship. </p>
+
+<h3> Assumptions that cannot be investigated </h3>
+
+<p> One untestable assumption in this analysis is that since I am using matching followed by a difference-in-difference design, there is a possibility of common shocks - this is an untestable assumption that involves exogenous factors that are likely unknown to the researcher. For more on this, see <a href="https://diff.healthpolicydatascience.org/">this</a> link. </p>
+
+<p> One such district-level shock could be the changes in attitudes towards the judiciary in a particular district due to exposure to particular policy changes that are unknown to the researcher. In turn, this would affect ambition for candidates attempting the exams.</p>
+
+
+
       </section>
       <footer>
         <p><small> This website is based on the Github <a href= "https://github.com/orderedlist/minimal">minimal theme</a>.
