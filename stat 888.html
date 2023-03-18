@@ -1,0 +1,308 @@
+
+<!doctype html>
+<html>
+  <head>
+	  
+	  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DLP9P2ET50"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DLP9P2ET50');
+</script>
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       event.preventDefault();
+       var e = document.getElementById(id);
+       if(e.style.display == 'none')
+          e.style.display = 'block';
+       else
+          e.style.display = 'none';
+    }
+
+//-->
+</script>
+
+	  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Saloni Bhogale</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+	<link rel="stylesheet" href="stylesheets/shiro.css">
+	<link rel="stylesheet" href="stylesheets/kube.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+	<script src="https://kit.fontawesome.com/9745af1226.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Saloni Bhogale</h1>
+		<img src="me.jpg">
+        <p></p>
+         <p class="view">Ph.D. Student<br><a target="_blank" rel="noopener noreferrer" href="https://polisci.wisc.edu/">Department of Political Science</a><br> <a target="_blank" rel="noopener noreferrer" href="https://www.wisc.edu/">University of Wisconsin-Madison</a><br>
+        <a href="mailto:bhogale@wisc.edu">bhogale@wisc.edu</a>
+		
+<div class="is-inset-8">
+  <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mindbhogaling" class="is-icon"><i class="fab fa-twitter fa-2x"></i></a >
+    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/saloni-bhogale-2a565846/" class="is-icon"><i class="fab fa-linkedin fa-2x"></i></a >
+</div>
+
+
+
+      </header>
+	  
+	  
+
+
+      <section>
+        <h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a></h3>
+
+
+
+<p>Welcome! My name is Saloni Bhogale, and I am pursuing an M.S. in <b> <a target="_blank" rel="noopener noreferrer" href="https://polisci.wisc.edu/">Statistics (Applied Statistics)</a></b> and a PhD in <b> <a target="_blank" rel="noopener noreferrer" href="https://polisci.wisc.edu/">Political Science</a></b> at the <b> <a target="_blank" rel="noopener noreferrer" href="https://www.wisc.edu/">University of Wisconsin-Madison</a></b>.
+<p>
+  
+
+ My work is focused on the political economy of development and political institutions. I am working on projects that examine the effects of term lengths on legislator performance, the effects of judicial (in)efficiency on economic development and the impact of affirmative action. Methodologically, I am interested in learning more about how social scientists use and apply machine learning - particularly, I am working on a project that evaluates the effectiveness and validity of using word embeddings to measure group-level biases in textual data.
+  
+  
+
+I also co-coordinate <b> <a target="_blank" rel="noopener noreferrer" href="https://sites.google.com/wisc.edu/cpcwisc/">the Comparative Politics Colloquium</a></b> — a workshop which meets weekly and invites speakers, faculty members, and graduate students to present their work and receive feedback. </p>
+
+<p>I am interested in causal inference because the method can be used to understand whether variation in efficiency of courts can have an impact on economic development. While it may not be possible to experimentally manipulate 'court quality' by randomly assigning 'better' courts to some areas, I am hoping that the tools from causal inference can be leveraged to credibly establish the broader economic effects of weak institutions, particularly judicial ineffiency.</p>
+
+<h2> Definition </h2>
+
+<div align="left"><h3> The Question </h3></div>
+
+<p>The quality of a country's judiciary has far-reaching consequences, as it plays a key role as the arbitrator of justice and is the institution that protects the rights of citizens. However, there remains large variation in the <i>ability</i> of courts to perform this mandate, especially in developing countries. </p>
+
+<p>Of particular importance is institutional diversity, which can affect the fairness, access and legitimacy of an institution.</p>
+
+<p> This motivates the question: What are the effects of affirmative action on judicial efficiency, and diversity within the judiciary? </p>
+
+<h3> Background </h3>
+
+<p> Gender inequality in developing countries remains an <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-economics-080614-115404">important issue</a>. The societal balance is tilted in favor of the male population - in the labor market, health, education and personal autonomy. </p>
+<p> Further, gender-based preferences thus result in enrollment gaps, wage gaps and other forms of discrimination. Discriminatory gender norms are persistent and get carried over to public and political institutions, and thus policies are instituted to address this societal issue.</p>
+<p> However, there remains little systematic analysis of affirmative action policies in the judiciary, and I hope to address this research gap through my work. </p>
+
+<h3> Random variables</h3>
+
+<p> Below, I describe the random variables that I will use to model the problem:</p>
+<ul>
+  <li><b>Treatment: </b> Quotas, an indicator variable that takes the value 1 if a court is located in an area with affirmative action for women, and 0 otherwise.</li>
+  <li><b>Outcome 1: </b>Representation, measured by the number of female judges practicing in the court</li>
+  <li><b>Outcome 2: </b>Judicial efficiency, measured by the average time taken to resolve a case in a given District Court</li>
+  <li><b>Outcome 3: </b>Pipeline effects, measured by the number of women attempting judicial service examninations.  </li>
+  <li><b>Control 1: </b>Time, a dummy to indicate whether the observation is before or after the quota policy is in place</li>
+  <li><b>Control 2: </b> Court workload</li>
+  <li><b>Other controls:</b> controlling for court and area characteristics</li>
+</ul>
+
+<h3> The Causal Effect </h3>
+<p> Through this project, I plan to recover the average treatment effect</p>
+
+<p>Mathematically, we can write: </p>
+<p> <i> E[Y(a) - Y(a')]</i> which is also known as the average causal effect </p>
+<p>Here, Y can be one of outcomes 1 to 3, and <i>a</i> indicates if the court is in an area with affirmative action, and <i>a'</i> indicates a court which is in an area without affirmative action.</p>
+
+
+<h3> Working Hypothesis </h3>
+
+<p><b>Hypothesis 1:</b> Quotas lead to an increase in the number of female judges practicing in District Courts</p>
+<p><b>Hypothesis 2:</b> Quotas lead to no change in judicial efficiency</p>
+<p><b>Hypothesis 3:</b> Quotas lead to an increase in the number of women attempting the state judicial services examinations.</p>
+
+<h2> Identification </h2>
+
+<p> In the following section, I describe the identification strategy for Hypothesis 3 only for simplicity. I want to test if quotas lead to an increase in the number of women attempting the state judicial services examinations.</p>
+<h3> Assumptions </h3>
+<ul>
+  <li><b>Treatment Irrelevance (from SUTVA): </b> treatment interventions result in the same potential outcome, so this is not a concern</li>
+  <li><b>Consistency (from SUTVA): </b> Same version of treatment (Quota) as the policy is uniformly applied across districts </li>
+  <li><b>No Interference (from SUTVA): </b> this might not hold since changes due to quotas across districts might interfere, especially for proximate districts and along borders. For example, a court close to a border may be close to villages and settlements in treated and control districts, and depending on proximity and transportation availability, female judges could serve as mentors for women across both treated and untreated areas. </li>
+  <li><b>Exchangeability: </b> the outcomes are independent of the assignment </li>
+</ul>
+
+
+<h3> Steps for Identification & Justification </h3>
+
+<img src="dag.png">
+
+<p> Here, Q signifies the treatment (Quotas), X are a set of variables that can affect both the institution of quotas and the outcomes Y (increase in females attempting judicial service examinations), and W are variables that affect Y, for instance, some regions may have incentives given to women to take up law as a career, or to attempt these exams. </p>
+
+<p>  I use backdoor adjustment to determine the nodes that satisfy the backdoor criteria so that conditioning on them I can identify causal effects. </p>
+
+<img src="bda.png">
+
+<p> Here, X is the node that satisfies the backdoor criteria, thus X d-separates Q and Y and further invoke consistency and causal irrelevance as shown above. Finally, the law of iterated expectation helps us get at the final line in the above derivation.</p>
+
+<p>Accordingly, I use the law of iterated expectation, and consistency helps me arrive at this. As described above, we have consistency since the same version of treatment (Quota) as the policy is uniformly applied across districts with and without quotas. </p>
+
+<h3> Interpretation and Conclusion </h3>
+
+<p>In order to identify the effects, I would need to collect data on several control variables. For instance, time is a control that affects both the treatment and the outcome, and will help me employ a difference-in-difference strategy, to compare the changes over time in districts with and without quotas. </p> 
+
+<p> Further, I will use court-level fixed effects to control for court characteristics.</p>
+
+<p>In order to make this analysis credible, I am leveraging a natural experiment wherein geographically large states in India split into two states, wherein one part ended up having quotas introduced while the other did not. This ensures that there are reasonably similar starting characteristics (similar geography, institutions, language etc.). </p>
+<p>However, the new states might be different in other respects that may be important to take into account for this particular research question (for instance, women’s literacy, male-female ratio in population, attitudes towards women etc.). In order to make a “neat” causal argument, I plan to buttress this analysis by using propensity score matching to match districts with similar characteristics, wherein one had a quota and the other did not, and then estimate causal effects for “similar” units only.  </p>
+
+
+
+<h2> Estimation / Implementation </h2>
+
+<h3> Algorithm: Coarsened Exact Matching</h3> 
+
+
+<p>  In this project, I plan to employ a research design that allows me to select and compare courts by accounting for confounders through a ‘natural experiment’.  </p>
+  
+<p> I study the effect of quotas by using data from three large Indian states from which new states were carved out in late 2000. The three new states (created out of territories that belonged to the older states) went on to put quotas in place for women in the lower judiciary. The older territories can thus serve as a counterfactual, which allows us to observe what may have happened if quotas were not instituted, given that the regions were originally under the same political and judicial systems. </p>
+
+<p> Comparing the data for the old and new states, I found that the new states were geographically smaller in size and have a better sex-ratio as well as literacy rates (both overall, and for females). While these states might be geographically and culturally similar, the reasons for the splits and other differences listed above may point to unmeasured confounders. </p> 
+
+<p> I allay these concerns by employing a matching approach, wherein I use 'coarsened exact matching' to determine 'similar' districts. I match districts across the old and new states which have similar (1) sex-ratio (2) female literacy and (3) overall literacy. </p> 
+
+<h3> Steps for Estimation </h3>
+
+<p> In order to perform 'coarsened exact matching' I coarsen each of the variables into 4 'bins' as described in the algorithm. Since I am using the 'cem' method in the 'MatchIt' package in R, this number describes the number of cutpoints separating bins.<p> 
+
+<p> Further, any 'bins' or groups that do not include the treated and controlled units are discarded. </p> 
+
+<p> I use the following code to determine the matched groups of districts: </p> 
+
+<img src="code.png">
+<br> 
+<br>
+<h3> Data </h3> 
+
+<p>In order to test the hypothesis, I plan to use a dataset on case records from the Indian District e-Courts project that covers cases in India's lower judiciary. The e-Courts project aimed at the complete digitization of case records in all district courts, and makes its repository available to be queried using case numbers and other details. I plan to scrape this data for both case-level and judge-level information for all cases filed in Indian District courts between 2000 and 2018. Next, I will use two open-source tools for determining the gender of judges, lawyers and litigants - the first employs a bidirectional Long Short-Term Memory (LSTM) model on a dataset of labeled names to assign gender attributes to the actors, and the second is a Python package that helps infer socio-demographic characteristics from Indian Names. </p>
+
+<p> I will organize the data into a court-day dataset, computing the relevant dependent variables for the analysis as the number of female judges, number of female advocates, cases filed by female petitioners and number of female aspirants to the lower judiciary. </p> 
+
+<h3> Performance of Algorithm</h3> 
+
+<p> I ran 'MatchIt' in R to match districts in coarsened units. These were n-to-k coarsened exact matchings, where for n treated district, k control matches could be made. There were also some which were not assigned any groups, for whom the 'matches' column was shown to be NA. </p> 
+
+<p> I display a screenshot of the matched data below:</p> 
+
+<img src="cem-output.png">
+
+
+<br>
+<br>
+<p> Further, there was some data for which no matches were performed, as seen below:</p> 
+
+<img src="cem-output-nm.png">
+
+<p> In total, we can see that 7 groups were formed, with varying number of treated and control units. </p> 
+
+<p> Finally, it is important to note that we are not estimating the ATT here - since there are districts in certain groups that have been dropped since no matches could be made. Thus, what we are doing is estimating the ATT, conditional on being matched. </p>
+
+<h2> Homework 5 </h2>
+
+<h3> Assumptions Made</h3>
+
+<p> Throughout this research, I have assumed that there is no unmeasured confounding - that there is no other variables that would condition the effect of quotas on females attempting judicial services examination </p>
+
+<p> However, there may be a potential of unmeasured confounding, so I construct the Rosenbaum Bounds that lend themselves to a sensitivity test <a href ="https://link.springer.com/content/pdf/10.1007/978-1-4757-3692-2.pdf?pdf=button">(Rosenbaum, 2002)</a> </p>
+
+<h3> Investigating Sensitivity </h3>
+
+<p> The motivating idea of this work is to estimate 'Gamma' - that is, how big does 'Gamma' need to be such that the relationship between the treatment and outcome is preserved. </p>
+
+<p> Interpreting Gamma: This number provides a sense of the different "odds" - that is, if Gamma is 1, it emulates a perfect randomized experiment. If Gamma is 2, then the matched districts differ in their assignments to treatment or control by a factor of 2 due to hidden bias. </p>
+
+<p> If a particular Gamma is shown to be within statistically insignificant bounds, then the hidden bias of size Gamma cannot explain away the difference between the outcomes in the treated and control districts.</p>
+
+<p> How big does Gamma for an unmeasured confounder need to be to explain away the association between the treatment and my outcome? The Rosenbaum Bounds provide a lower and an upper bound on the significance of the Gamma values that can help me understand this. Sensitivity analysis basically asks how conclusions about associations can be changed due to hidden biases of various magnitudes <a href ="https://link.springer.com/content/pdf/10.1007/978-1-4757-3692-2.pdf?pdf=button">(Rosenbaum, 2002)</a> </p>
+
+<p> In order to conduct sensitivity tests by creating bounds on the data, I use the 'rbounds' package in R to conduct Rosenbaum Bounds Sensitivity Tests. </p>
+
+<p>Here, I use the 'mcontrol' function that gives the sensitivity analysis for the significance levels from Wilcoxon's signed rank test, that is, the range of possible significance levels for various values of Gamma</p>
+
+<p>One limitation is that the package only suports matched data with 2 or 3 controls units matched to each treated unit. However, this does not work well with my previous set up, which sometimes had over 7 observations assigned to one group </p>
+
+<p> I thus re-set the coarsened exact matching procedure such that there is a 1:1 matching. To do this, I set k2k=TRUE in the MatchIt function </p>
+
+<img src="matching-11.png">
+
+<p> Next, I simulate outcome data for the experiment that measures girl's ambition and compute the average treatment effect for the matched pairs </p>
+
+<img src="outcome.png">
+
+<p> This gives an effect of 6, that is, districts that have gender quotas for judges increase girl's ambitions to pursue law as a career by 6 units </p>
+
+<p> Finally, I conduct the sensitivity analysis using the 1:1 matched pairs using coarsened exact matching. We want to test here how big the unobserved confounder needs to be oto explain away the significance of the result. </p>
+
+<p> To do this, I run the following command: </p>
+
+<img src="bounds.png">
+
+<p> And get the results as follows: </p>
+
+<img src="gamma.png">
+
+<p> The table shows that to explain away the observed association between gender quotas for judges and girl's ambition, a hidden bias (or an unobserved covariate) would need to increase the odds of exposure to the quota by more than a factor of Gamma = 3, assuming that the statistically significant result is obtained at p=0.05</p>
+
+<p> In order to conduct and interpret these results, I followed the procedure provided in Rosenbaum, Paul R. (2002) Observational Studies. Springer-Verlag.</p>
+
+<h3> Violation of assumption: Constructing E-Values </h3>
+
+<p> In order to test for the sensitivity of my conclusion to the stated assumptions (that there is no unmeasured confounding), I now assume that there may be unmeasured confounding. It would be helpful under this assumption to understand how big would the unmeasured confounder need to be to explain away the relationship between the treatment and outcome </p>
+
+<p> Here, I compute Ding's and VanderWeele's bounds to understand how much bias can be tolerated in our outcomes. One key question is how to choose values for RR_uy and RR_au.</p>
+
+<p> I get around this is by computing e-values (see more on e-values on VanderWeele's lecture <a href="https://www.youtube.com/watch?v=MrV4eWFcn1w&t=672s&ab_channel=ISPED-Bordeaux">here</a>) -  how much the unmeasured confounder must bias treatment assignments or the outcome to explain away the observed association between the treatment and outcome. </p>
+
+<p> First, I compute the observed relative risk (RR_obs) = mean(treated outcomes) / mean (control outcomes) = 2.28</p>
+<p> Further, I compute the 'evalue' in R, and find that I get E = 4, showing that, to explain away an observed relative risk of 2.28, the unmeasured confounder must increase the likelihood of an outcome by a factor of 4 or the treatment assignment must increase the likelihood of a level of the unmeasured confounder by a factor of 4.  </p>
+<p>  My conclusion is that any other weaker confounding could not explain away the relationship. </p>
+
+<h3> Assumptions that cannot be investigated </h3>
+
+<p> One untestable assumption in this analysis is that since I am using matching followed by a difference-in-difference design, there is a possibility of common shocks - this is an untestable assumption that involves exogenous factors that are likely unknown to the researcher. For more on this, see <a href="https://diff.healthpolicydatascience.org/">this</a> link. </p>
+
+<p> One such district-level shock could be the changes in attitudes towards the judiciary in a particular district due to exposure to particular policy changes that are unknown to the researcher. In turn, this would affect ambition for candidates attempting the exams.</p>
+
+<h3> Conclusion </h3>
+
+<p> In summary, I was able to develop a research design that could causally identify whether affirmative action for women in the judiciary motivates younger women to take up law as a career. </p>
+
+<p> This used the method of Coarsened Exact Matching, but it would be helpful to evaluate other matching methods and compare their performance. There is an option in the MatchIt package to do that called 'assessing-balance'.</p>
+
+<p> Given the simulated outcomes, the main finding was that affirmative action for women led to an increase in younger women taking up law as a career. Further, the sensitivity analysis was able to establish how big 'Gamma' would need to be to explain away the association between the treatment and outcome, and I found that there is little risk of unmeasured confounding given my design and outcomes. </p>
+
+<p> One limitation of the analysis has been getting the actual data on outcomes, which I will be collecting over the next few months. Another limitation has been looking at other (district-level) confounders - initiatives taken at the local level that might confound the results. I will look at news articles to rule these out entirely. </p>
+
+<p> While my work only looks at the effects of affirmative action on the pipeline of people taking up law as a career, future work can look at other outcomes that affirmative action may have - including the effects on court productivity and sentencing outcomes for cases. </p>
+
+<p> Finally, this work contributes to the literature by looking at a unique 'natural experiment' wherein states split, and different policies were instituted by using matching methods. This setting may be helpful for others who are looking at policy changes in different domains (for eg, health, education, nutrition etc.). A similar research design can be used to answer different questions within the domain of political economy. </p>
+
+
+      </section>
+      <footer>
+        <p><small> This website is based on the Github <a href= "https://github.com/orderedlist/minimal">minimal theme</a>.
+</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+
+</div></footer></div>
+
+
+
+
+  </body>
+</html>
